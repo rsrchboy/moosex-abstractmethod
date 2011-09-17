@@ -2,7 +2,7 @@
 
 =head1 NAME
 
-MooseX::AbstractMethod - The great new MooseX::AbstractMethod!
+MooseX::AbstractMethod - Declare methods requirements that must be satisfied
 
 =head1 VERSION
 
@@ -23,8 +23,6 @@ version 0.001
 This extensions allows classes to flag certain methods as being required to be
 implemented by a subclass, much as a L<Moose::Role> does with 'requires'.
 
-In fact, the same keyword can be used :)
-
 =head1 USAGE
 
 As in the synopsis, simply mark certain methods as being required by
@@ -34,6 +32,10 @@ horribly if it's ever called.  Additionally, when a class is made immutable,
 all of its methods are checked to see if they're marked as abstract; if any
 abstract methods exists that were not created in the current class, we die
 horribly.
+
+Checking for method satisfaction on make_immutable isn't perfect, but AFAICT
+it's the most reasonable approach possible at the moment.  (Corrections
+welcome.)
 
 =head1 SEE ALSO
 
