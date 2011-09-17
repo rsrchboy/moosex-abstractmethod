@@ -1,0 +1,60 @@
+=pod
+
+=head1 NAME
+
+MooseX::AbstractMethod - The great new MooseX::AbstractMethod!
+
+=head1 VERSION
+
+version 0.001
+
+=head1 SYNOPSIS
+
+    use Moose;
+    use MooseX::Abstract;
+
+    requires 'bar';
+
+    # synonm to 'requires'
+    abstract 'foo';
+
+=head1 DESCRIPTION
+
+This extensions allows classes to flag certain methods as being required to be
+implemented by a subclass, much as a L<Moose::Role> does with 'requires'.
+
+In fact, the same keyword can be used :)
+
+=head1 USAGE
+
+As in the synopsis, simply mark certain methods as being required by
+subclasses by passing their names to "abstract" or "requires".  This will
+cause a method of the same name to be installed in the class that will die
+horribly if it's ever called.  Additionally, when a class is made immutable,
+all of its methods are checked to see if they're marked as abstract; if any
+abstract methods exists that were not created in the current class, we die
+horribly.
+
+=head1 SEE ALSO
+
+=head1 BUGS
+
+All complex software has bugs lurking in it, and this module is no exception.
+
+Bugs, feature requests and pull requests through GitHub are most welcome; our
+page and repo (same URI):
+
+    https://github.com/RsrchBoy/moosex::abstractmethod
+
+=head1 AUTHOR
+
+Chris Weyl <cweyl@alumni.drew.edu>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is Copyright (c) 2011 by Chris Weyl.
+
+This is free software, licensed under:
+
+  The GNU Lesser General Public License, Version 2.1, February 1999
+
