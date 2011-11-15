@@ -1,5 +1,8 @@
-Revision history for {{$dist->name}}
+Revision history for MooseX-AbstractMethod
 
 {{$NEXT}}
+
+0.002     2011-11-15 14:43:39 America/Los_Angeles
+- documentation updates; nothing else
 
 0.001     2011-09-16 22:09:35 America/Los_Angeles
