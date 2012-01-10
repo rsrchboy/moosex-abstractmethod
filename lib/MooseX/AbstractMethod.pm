@@ -83,8 +83,14 @@ use Moose::Util::MetaRole;
 sub abstract { _abstract(@_) }
 sub requires { _abstract(@_) }
 
-#sub _abstract { $_[0]->add_abstract_method($_[1] => $_[0]->name) }
-sub _abstract { shift->add_abstract_method(@_) }
+sub _abstract {
+
+    ### meta isa: ref $_[0]
+    return shift->add_abstract_method(@_)
+        unless $_[0]->isa('Moose::Meta::Role');
+
+    goto \&Moose::Role::requires;
+}
 
 Moose::Exporter->setup_import_methods(
     with_meta => [ qw{ abstract requires } ],
