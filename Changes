@@ -2,6 +2,10 @@ Revision history for MooseX-AbstractMethod
 
 {{$NEXT}}
 
+0.003     2012-01-10 12:01:16 America/Los_Angeles
+- don't mess with roles (that is, have our sugar just hand off to
+  Moose::Role::requires() if we happen to be use'd from a role
+
 0.002     2011-11-15 14:43:39 America/Los_Angeles
 - documentation updates; nothing else
 
