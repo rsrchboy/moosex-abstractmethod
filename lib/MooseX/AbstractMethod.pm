@@ -7,6 +7,9 @@ use namespace::autoclean;
 use Moose::Exporter;
 use Moose::Util::MetaRole;
 
+# debugging...
+#use Smart::Comments;
+
 {
     package MooseX::AbstractMethod::Trait::Class;
     use Moose::Role;
