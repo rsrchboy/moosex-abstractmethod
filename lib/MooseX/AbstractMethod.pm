@@ -150,17 +150,4 @@ subclass before it is invoked, and before the subclass is made immutable.
 
 requires() is a synonym for abstract() and works in the way you'd expect.
 
-=head1 SEE ALSO
-
-
-
-=head1 BUGS
-
-All complex software has bugs lurking in it, and this module is no exception.
-
-Bugs, feature requests and pull requests through GitHub are most welcome; our
-page and repo (same URI):
-
-    https://github.com/RsrchBoy/moosex-abstractmethod
-
 =cut
