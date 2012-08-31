@@ -28,7 +28,7 @@ my $abstract_meta = Moose::Meta::Class->create_anon_class(
     sub _abstract {
         my $name = shift;
 
-        my $method = $abstract_meta->name->wrap(sub { ... },
+        my $method = $abstract_meta->name->wrap(sub { die },
                 name         => $name,
                 package_name => __PACKAGE__,
         );
