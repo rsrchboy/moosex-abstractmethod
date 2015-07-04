@@ -1,0 +1,91 @@
+[![Build Status](https://travis-ci.org/RsrchBoy/moosex-abstractmethod.svg?branch=master)](https://travis-ci.org/RsrchBoy/moosex-abstractmethod)
+[![Kwalitee status](http://cpants.cpanauthors.org/dist/MooseX-AbstractMethod.png)](http://cpants.charsbar.org/dist/overview/MooseX-AbstractMethod)
+[![Coverage Status](https://coveralls.io/repos/RsrchBoy/moosex-abstractmethod/badge.png?branch=master)](https://coveralls.io/r/RsrchBoy/moosex-abstractmethod?branch=master)
+
+# NAME
+
+MooseX::AbstractMethod - Declare methods requirements that must be satisfied
+
+# VERSION
+
+This document describes version 0.005 of MooseX::AbstractMethod - released July 02, 2015 as part of MooseX-AbstractMethod.
+
+# SYNOPSIS
+
+    use Moose;
+    use MooseX::Abstract;
+
+    requires 'bar';
+
+    # synonm to 'requires'
+    abstract 'foo';
+
+# DESCRIPTION
+
+This extensions allows classes to flag certain methods as being required to be
+implemented by a subclass, much as a [Moose::Role](https://metacpan.org/pod/Moose::Role) does with 'requires'.
+
+# USAGE
+
+As in the synopsis, simply mark certain methods as being required by
+subclasses by passing their names to "abstract" or "requires".  This will
+cause a method of the same name to be installed in the class that will die
+horribly if it's ever called.  Additionally, when a class is made immutable,
+all of its methods are checked to see if they're marked as abstract; if any
+abstract methods exists that were not created in the current class, we die
+horribly.
+
+Checking for method satisfaction on make\_immutable isn't perfect, but AFAICT
+it's the most reasonable approach possible at the moment.  (Corrections
+welcome.)
+
+# NEW SUGAR
+
+## abstract
+
+abstract() allows one to declare a method dependency that must be satisfied by a
+subclass before it is invoked, and before the subclass is made immutable.
+
+    abstract 'method_name_that_must_be_satisfied';
+
+## requires
+
+requires() is a synonym for abstract() and works in the way you'd expect.
+
+# BUGS
+
+Please report any bugs or feature requests on the bugtracker website
+https://github.com/RsrchBoy/moosex-abstractmethod/issues
+
+When submitting a bug or request, please include a test-file or a
+patch to an existing test-file that illustrates the bug or desired
+feature.
+
+# AUTHOR
+
+Chris Weyl <cweyl@alumni.drew.edu>
+
+## I'm a material boy in a material world
+
+<div>
+    <a href="https://gratipay.com/RsrchBoy/"><img src="http://img.shields.io/gratipay/RsrchBoy.svg" /></a>
+    <a href="http://bit.ly/rsrchboys-wishlist"><img src="http://wps.io/wp-content/uploads/2014/05/amazon_wishlist.resized.png" /></a>
+    <a href="https://flattr.com/submit/auto?user_id=RsrchBoy&url=https%3A%2F%2Fgithub.com%2FRsrchBoy%2Fmoosex-abstractmethod&title=RsrchBoy's%20CPAN%20MooseX-AbstractMethod&tags=%22RsrchBoy's%20MooseX-AbstractMethod%20in%20the%20CPAN%22"><img src="http://api.flattr.com/button/flattr-badge-large.png" /></a>
+</div>
+
+Please note **I do not expect to be gittip'ed or flattr'ed for this work**,
+rather **it is simply a very pleasant surprise**. I largely create and release
+works like this because I need them or I find it enjoyable; however, don't let
+that stop you if you feel like it ;)
+
+[Flattr](https://flattr.com/submit/auto?user_id=RsrchBoy&url=https%3A%2F%2Fgithub.com%2FRsrchBoy%2Fmoosex-abstractmethod&title=RsrchBoy&#x27;s%20CPAN%20MooseX-AbstractMethod&tags=%22RsrchBoy&#x27;s%20MooseX-AbstractMethod%20in%20the%20CPAN%22),
+[Gratipay](https://gratipay.com/RsrchBoy/), or indulge my
+[Amazon Wishlist](http://bit.ly/rsrchboys-wishlist)...  If and \*only\* if you so desire.
+
+# COPYRIGHT AND LICENSE
+
+This software is Copyright (c) 2011 by Chris Weyl.
+
+This is free software, licensed under:
+
+    The GNU Lesser General Public License, Version 2.1, February 1999
